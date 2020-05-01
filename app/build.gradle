@@ -70,7 +70,7 @@ releasesHub {
     dependenciesClassNames = ["Dep.kt"]
     pullRequestEnabled = true
     gitHubRepositoryOwner = "RyuNen344"
-    gitHubRepositoryName = "android-template"
+    gitHubRepositoryName = "bottom-app-bar"
     pullRequestsMax = 2
     gitHubUserName = "RyuNen344"
     gitHubUserEmail = "s1100633@outlook.com"

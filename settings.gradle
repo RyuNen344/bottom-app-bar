@@ -5,4 +5,4 @@ include ':model'
 include ':resource'
 include ':core'
 include ':app'
-rootProject.name = "android-template"
+rootProject.name = "bottom-app-bar"
