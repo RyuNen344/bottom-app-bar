@@ -1,0 +1,59 @@
+import dependencies.Dep
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+apply from: rootProject.file('gradle/android.gradle')
+android.dataBinding.enabled = true
+
+dependencies {
+
+    implementation project(":core")
+    implementation project(":resource")
+    implementation project(":model")
+    implementation project(":data:repository")
+
+    implementation Dep.Kotlin.stdlibJvm
+    implementation Dep.Kotlin.stdlibCommon
+
+    implementation Dep.Kotlin.Coroutines.coroutines
+    implementation Dep.Kotlin.Coroutines.coroutinesAndroid
+
+    implementation Dep.Kotlin.Serialization.serializationAndroid
+
+    implementation Dep.AndroidX.coreKtx
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+    implementation Dep.AndroidX.emoji
+    implementation Dep.AndroidX.design
+    implementation Dep.AndroidX.fragmentKtx
+    implementation Dep.AndroidX.recyclerView
+    implementation Dep.AndroidX.recyclerViewSelection
+
+    implementation Dep.Groupie.groupie
+    implementation Dep.Groupie.viewbinding
+
+    implementation Dep.AndroidX.Navigation.uiKtx
+    implementation Dep.AndroidX.Navigation.runtimeKtx
+    implementation Dep.AndroidX.Navigation.fragmentKtx
+
+    implementation Dep.AndroidX.LiveData.liveDataCoreKtx
+    implementation Dep.AndroidX.LiveData.liveDataKtx
+
+    implementation Dep.Koin.android
+    implementation Dep.Koin.scope
+    implementation Dep.Koin.viewmodel
+    implementation Dep.Koin.fragment
+
+    testImplementation Dep.Test.junit
+    androidTestImplementation Dep.Test.androidJunit4Ktx
+    androidTestImplementation Dep.Test.espressoCore
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.kotlinTestAssertions
+    androidTestImplementation Dep.Test.testingKtx
+}

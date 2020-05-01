@@ -1,0 +1,37 @@
+import dependencies.Dep
+
+apply from: file('gradle/dependencyGraph.gradle')
+apply from: file('gradle/utils.gradle')
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        gradlePluginPortal()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        maven { url 'https://dl.bintray.com/lisawray/maven' }
+        maven { url "https://plugins.gradle.org/m2/"}
+    }
+    dependencies {
+        classpath Dep.GradlePlugin.Android.android
+        classpath Dep.GradlePlugin.Android.safeArgs
+        classpath Dep.GradlePlugin.kotlin
+        classpath Dep.GradlePlugin.kotlinSerialization
+        classpath Dep.GradlePlugin.releaseHub
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        gradlePluginPortal()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        maven { url 'https://dl.bintray.com/lisawray/maven' }
+        maven { url "https://plugins.gradle.org/m2/"}
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

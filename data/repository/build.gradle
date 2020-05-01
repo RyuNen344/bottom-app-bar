@@ -1,0 +1,44 @@
+import dependencies.Dep
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+}
+
+apply from: rootProject.file('gradle/android.gradle')
+android.dataBinding.enabled = true
+
+dependencies {
+
+    implementation project(":core")
+    implementation project(":model")
+    implementation project(":resource")
+    implementation project(":data:api")
+
+    implementation Dep.Kotlin.stdlibJvm
+    implementation Dep.Kotlin.stdlibCommon
+
+    implementation Dep.Kotlin.Coroutines.coroutines
+    implementation Dep.Kotlin.Coroutines.coroutinesAndroid
+
+    implementation Dep.Kotlin.Serialization.serializationAndroid
+
+    implementation Dep.AndroidX.coreKtx
+    implementation Dep.AndroidX.appCompat
+
+    implementation Dep.AndroidX.LiveData.liveDataCoreKtx
+    implementation Dep.AndroidX.LiveData.liveDataKtx
+
+    implementation Dep.Koin.android
+    implementation Dep.Koin.scope
+
+    testImplementation Dep.Test.junit
+    androidTestImplementation Dep.Test.androidJunit4Ktx
+    androidTestImplementation Dep.Test.espressoCore
+    testImplementation Dep.Test.coroutinesTest
+    testImplementation Dep.Test.kotlinTestAssertions
+    androidTestImplementation Dep.Test.testingKtx
+
+}

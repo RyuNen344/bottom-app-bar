@@ -1,0 +1,8 @@
+include ':feature:home'
+include ':data:repository'
+include ':data:api'
+include ':model'
+include ':resource'
+include ':core'
+include ':app'
+rootProject.name = "android-template"

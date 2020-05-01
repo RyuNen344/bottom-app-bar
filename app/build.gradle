@@ -1,0 +1,77 @@
+import dependencies.Dep
+import dependencies.Packages
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.releaseshub.gradle.plugin'
+}
+
+apply from: rootProject.file('gradle/android.gradle')
+android.dataBinding.enabled = true
+
+android {
+    defaultConfig {
+        applicationId Packages.name
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix Packages.debugNameSuffix
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation project(":core")
+    implementation project(":resource")
+    implementation project(":model")
+    implementation project(":data:api")
+    implementation project(":data:repository")
+    implementation project(":feature:home")
+
+    implementation Dep.Kotlin.stdlibJvm
+    implementation Dep.Kotlin.stdlibCommon
+
+    implementation Dep.AndroidX.coreKtx
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.constraintLayout
+
+    implementation Dep.AndroidX.Navigation.uiKtx
+    implementation Dep.AndroidX.Navigation.fragmentKtx
+    implementation Dep.AndroidX.Navigation.runtimeKtx
+
+    implementation Dep.Kotlin.Coroutines.coroutines
+    implementation Dep.Kotlin.Coroutines.coroutinesAndroid
+
+    implementation Dep.Koin.android
+    implementation Dep.Koin.scope
+    implementation Dep.Koin.viewmodel
+    implementation Dep.Koin.fragment
+
+    testImplementation Dep.Test.junit
+    testImplementation Dep.Test.androidJunit4Ktx
+}
+
+releasesHub {
+    dependenciesBasePath = "buildSrc/src/main/java/dependencies/"
+    dependenciesClassNames = ["Dep.kt"]
+    pullRequestEnabled = true
+    gitHubRepositoryOwner = "RyuNen344"
+    gitHubRepositoryName = "android-template"
+    pullRequestsMax = 2
+    gitHubUserName = "RyuNen344"
+    gitHubUserEmail = "s1100633@outlook.com"
+}

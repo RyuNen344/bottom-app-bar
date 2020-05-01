@@ -1,0 +1,39 @@
+import dependencies.Dep
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+apply from: rootProject.file('gradle/android.gradle')
+android.dataBinding.enabled = true
+
+dependencies {
+
+    implementation project(":resource")
+
+    implementation Dep.Kotlin.stdlibJvm
+    implementation Dep.Kotlin.stdlibCommon
+
+    api Dep.Kotlin.Coroutines.coroutines
+    api Dep.Kotlin.Coroutines.coroutinesAndroid
+
+    implementation Dep.Kotlin.Serialization.serializationAndroid
+
+    implementation Dep.AndroidX.coreKtx
+    implementation Dep.AndroidX.appCompat
+
+    implementation Dep.AndroidX.Navigation.uiKtx
+    implementation Dep.AndroidX.Navigation.runtimeKtx
+    implementation Dep.AndroidX.Navigation.fragmentKtx
+
+    implementation Dep.Koin.android
+    implementation Dep.Koin.scope
+    implementation Dep.Koin.viewmodel
+    implementation Dep.Koin.fragment
+
+    api Dep.Timber.android
+}
