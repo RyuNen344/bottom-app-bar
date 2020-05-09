@@ -19,7 +19,7 @@ class RepositoryRecyclerView @JvmOverloads constructor(
     defStyle: Int = 0
 ) : RecyclerView(context, attrs, defStyle) {
 
-    var selectionTracker: SelectionTracker<Long>
+    private var selectionTracker: SelectionTracker<Long>
 
     private val groupAdapter: GroupAdapter<GroupieViewHolder> by lazy { GroupAdapter<GroupieViewHolder>() }
 
