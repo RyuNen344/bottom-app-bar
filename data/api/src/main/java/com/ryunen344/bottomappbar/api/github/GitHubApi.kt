@@ -5,6 +5,7 @@ import com.ryunen344.bottomappbar.api.github.response.RepositoryResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
 import io.ktor.client.request.get
+import io.ktor.client.request.header
 import io.ktor.client.request.url
 import io.ktor.http.ContentType
 import kotlinx.serialization.ImplicitReflectionSerializer
@@ -24,6 +25,7 @@ class GitHubApi(
     suspend fun getRepositories(since: Int?): RepositoryResponse {
         val rawResponse = httpClient.get<String> {
             url(if (since != null) "$apiEndpoint/repositories?since=$since" else "$apiEndpoint/repositories")
+            header("Connection", "close")
             accept(ContentType.Application.Json)
         }
 

@@ -2,6 +2,7 @@ package com.ryunen344.bottomappbar
 
 import android.app.Application
 import com.ryunen344.bottomappbar.api.apiModule
+import com.ryunen344.bottomappbar.detail.detailModule
 import com.ryunen344.bottomappbar.home.homeModule
 import com.ryunen344.bottomappbar.repository.repositoryModule
 import org.koin.android.ext.koin.androidContext
@@ -23,7 +24,7 @@ class App : Application() {
             androidContext(this@App)
             androidFileProperties()
             fragmentFactory()
-            modules(apiModule, repositoryModule, homeModule)
+            modules(apiModule, repositoryModule, homeModule, detailModule)
         }
 
         Timber.plant(LogcatTree())

@@ -40,6 +40,7 @@ dependencies {
     implementation project(":model")
     implementation project(":data:api")
     implementation project(":data:repository")
+    implementation project(":feature:detail")
     implementation project(":feature:home")
 
     implementation Dep.Kotlin.stdlibJvm

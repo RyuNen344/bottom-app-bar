@@ -3,5 +3,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item> // **半分白く**
+        <item name="android:navigationBarColor">#803700B3</item>  // **半分白く**
     </style>
 </resources>

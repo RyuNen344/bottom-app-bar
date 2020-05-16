@@ -5,7 +5,7 @@ object Dep {
     object GradlePlugin {
 
         object Android {
-            private const val version = "3.6.2"
+            private const val version = "3.6.3"
             const val android = "com.android.tools.build:gradle:$version"
             const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0-alpha06"
         }
@@ -114,6 +114,8 @@ object Dep {
     }
 
     object Insetter {
-        const val insetter = "dev.chrisbanes:insetter-ktx:0.2.1"
+        const val ktx = "dev.chrisbanes:insetter-ktx:0.2.2"
+        const val databinding = "dev.chrisbanes:insetter-dbx:0.2.2"
+        const val widgets = "dev.chrisbanes:insetter-widgets:0.2.2"
     }
 }
