@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ryunen344.bottomappbar.home.databinding.FragmentHomeBinding
-import dev.chrisbanes.insetter.applySystemWindowInsetsToMargin
+import dev.chrisbanes.insetter.applySystemGestureInsetsToPadding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -35,12 +34,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(directions)
         }
 
-        binding.list.setOnApplyWindowInsetsListener { v, insets ->
-            binding.list.updatePadding(
-                bottom = insets.systemWindowInsetBottom
-            )
-
-            return@setOnApplyWindowInsetsListener insets
-        }
+        binding.list.applySystemGestureInsetsToPadding(bottom = true)
     }
 }
